@@ -103,13 +103,12 @@
   /* ---------- section heading ---------- */
   .section-head{
     max-width:960px; margin:88px auto 30px; padding:0 24px;
-    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
-    flex-wrap:wrap;
+    display:flex; flex-direction:column; align-items:flex-start; gap:8px;
   }
   .section-head h2{
     font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:26px; margin:0;
   }
-  .section-head p{margin:0; color:var(--muted); font-size:14px; max-width:40ch;}
+  .section-head p{width:100%; max-width:none; margin:0; color:var(--muted); font-size:14px;}
 
   /* ---------- projects ---------- */
   #projects{max-width:960px; margin:0 auto; padding:0 24px 40px; display:flex; flex-direction:column; gap:22px;}
@@ -244,7 +243,7 @@
 
 <main class="hero">
   <div class="eyebrow">Freelance &middot; Mobile App Development</div>
-  <h1 class="title">Mobile App Developer Portfolio</h1>
+  <h1 class="title">Mobile App Developer</h1>
   <p class="lede" id="intro-text">
     For more than ten years, I've delivered comprehensive mobile app solutions &mdash; from initial concept
     and development across native and hybrid platforms, through to App Store and Play Store publication
@@ -254,21 +253,21 @@
     budget and timeline.
   </p>
   <div class="skills" id="skills-row">
+    <span class="skill-pill"><span class="sw"></span>React Native</span>
     <span class="skill-pill"><span class="sw"></span>iOS Native &mdash; SwiftUI, Swift, Objective-C</span>
     <span class="skill-pill"><span class="sw"></span>.NET MAUI / Xamarin</span>
-    <span class="skill-pill"><span class="sw"></span>React Native</span>
   </div>
 
   <div class="stats-row" id="stats-row">
     <div class="stat"><div class="n">12+</div><div class="l">Years Experience</div></div>
-    <div class="stat"><div class="n" id="stat-count">9</div><div class="l">Apps Shipped</div></div>
-    <div class="stat"><div class="n">2</div><div class="l">Stores Published To</div></div>
+    <div class="stat"><div class="n" id="stat-count">5</div><div class="l">Apps Shipped</div></div>
+    <div class="stat"><div class="n">35+</div><div class="l">Stores Published</div></div>
   </div>
 </main>
 
 <div class="section-head">
   <h2>Project details</h2>
-  <p>A running record of apps designed, built, and shipped &mdash; updated as new work ships.</p>
+  <p>Here are some of the recent projects I've worked on, showcasing my experience in mobile app development and building practical solutions for real-world needs</p>
 </div>
 
 <section id="projects"><!-- rendered by script at bottom --></section>
@@ -538,7 +537,7 @@
 
   function renderProjects(){
     const root = document.getElementById('projects');
-    document.getElementById('stat-count').textContent = PROJECTS.length;
+    document.getElementById('stat-count').textContent = '50+'; // PROJECTS.length;
     root.innerHTML = PROJECTS.map((p, i) => `
       <article class="card">
         <div class="card-top">
