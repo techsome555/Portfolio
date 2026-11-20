@@ -148,6 +148,14 @@
     font-size:14.5px; line-height:1.6; color:var(--ink-soft);
     margin:0 0 16px; max-width:66ch;
   }
+  .project-skill{
+    display:inline-flex; align-items:center; gap:7px;
+    margin:0 0 16px; padding:6px 10px;
+    color:var(--ink-soft); background:var(--signal-dim);
+    border:1px solid #C5E8D2; border-radius:7px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+  }
+  .project-skill strong{color:var(--ink); font-weight:500;}
   .card-links{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px;}
   .store-link{
     display:inline-flex; align-items:center; gap:7px;
@@ -252,7 +260,7 @@
   </div>
 
   <div class="stats-row" id="stats-row">
-    <div class="stat"><div class="n">10+</div><div class="l">Years Experience</div></div>
+    <div class="stat"><div class="n">12+</div><div class="l">Years Experience</div></div>
     <div class="stat"><div class="n" id="stat-count">9</div><div class="l">Apps Shipped</div></div>
     <div class="stat"><div class="n">2</div><div class="l">Stores Published To</div></div>
   </div>
@@ -292,6 +300,7 @@
           name        -> app name, shown as the card title
           tagline     -> optional short label (e.g. "Under NDA"), or ""
           description -> 1-3 sentences describing what it does
+          skill       -> technologies or skills used for the app
           links       -> array of {label, url}. Leave [] for none.
           images      -> array of paths into resources/, in the order
                           you want them to appear in the filmstrip, e.g.
@@ -306,6 +315,7 @@
     "name": "Bill App",
     "tagline": "",
     "description": "A mobile app for billing(POS) and payment management, allowing users to view, pay, and track their bills conveniently.",
+    "skill": "React Native",
     "links": [
       {
         "label": "View on App Store",
@@ -329,6 +339,7 @@
     "name": "School Management App",
     "tagline": "",
     "description": "A mobile app for school communities, providing features like announcements, event calendars, and parent-teacher communication.",
+    "skill": "React Native",
     "links": [
       {
         "label": "View on App Store",
@@ -350,6 +361,7 @@
     "name": "eApp",
     "tagline": "",
     "description": "An in-house mobile app used by the company to track and update work-order and preventive-maintenance data for facilities teams &mdash; asset lookups, PM schedules, and work order management in one place.",
+    "skill": "Dotnet MAUI",
     "links": [
       {
         "label": "View on App Store",
@@ -371,6 +383,7 @@
     "name": "Handyman SF",
     "tagline": "",
     "description": "A mobile app to book handyman services with scheduling, in-app communication, and real-time updates.",
+    "skill": "Native iOS. SwiftUI, Swift",
     "links": [
       {
         "label": "View on App Store",
@@ -389,6 +402,7 @@
     "name": "Plumber Services",
     "tagline": "",
     "description": "Service booking app tailored for plumbing services with integrated map, service tracking, and secure booking.",
+    "skill": "Native iOS. SwiftUI, Swift",
     "links": [
       {
         "label": "View on App Store",
@@ -404,6 +418,7 @@
     "name": "Legistracker",
     "tagline": "",
     "description": "Tracks legislation updates and policy news in real-time, with custom push notifications and a live legislative feed.",
+    "skill": "Dotnet MAUI",
     "links": [
       {
         "label": "View on App Store",
@@ -418,9 +433,10 @@
     ]
   },
   {
-    "name": "NCRealtors",
+    "name": "NCRealtors",        
     "tagline": "",
     "description": "Lets users check House and Senate member details for the current legislative session, along with committee assignments and session activity.",
+    "skill": "Dotnet MAUI",
     "links": [
       {
         "label": "View on App Store",
@@ -438,6 +454,7 @@
     "name": "Leo Biz (Leo Business)",
     "tagline": "",
     "description": "Business-management companion app covering login, job scheduling, and day-to-day operations for teams on the Leo platform.",
+    "skill": "Dotnet MAUI",
     "links": [
       {
         "label": "View on App Store",
@@ -456,6 +473,7 @@
     "name": "AMI Group",
     "tagline": "",
     "description": "Internal enterprise app for asset management and team communication &mdash; site lists, job tracking, leave requests, and job attachments.",
+    "skill": "Dotnet MAUI",
     "links": [],
     "images": [
       "resources/ami-1.jpg",
@@ -469,6 +487,7 @@
     "name": "inSight",
     "tagline": "",
     "description": "Lets users scan business cards to instantly create new contacts, with support for surveys, notes, and group scanning.",
+    "skill": "Native iOS, Swift, UIKit",
     "links": [],
     "images": [
       "resources/insight-1.jpg",
@@ -481,6 +500,7 @@
     "name": "Vet App",
     "tagline": "Under NDA",
     "description": "Veterinary practice app with appointment booking, pet health tracking, and telemedicine features.",
+    "skill": "React Native",
     "links": [],
     "images": [
       "resources/vetapp-1.jpg",
@@ -493,6 +513,7 @@
     "name": "ProLynk",
     "tagline": "Under NDA",
     "description": "Service booking app where users can book a service, or enlist as a service provider themselves.",
+    "skill": "React Native",
     "links": [],
     "images": [
       "resources/prolynk-1.jpg",
@@ -528,6 +549,7 @@
           </div>
         </div>
         <p class="desc">${p.description}</p>
+        ${p.skill ? `<div class="project-skill"><strong>Skill: ${p.skill}</strong><span></span></div>` : ''}
         ${p.links && p.links.length ? `<div class="card-links">${p.links.map(l => `<a class="store-link" href="${l.url}" target="_blank" rel="noopener">${storeIcon(l.label)}${l.label}</a>`).join('')}</div>` : ''}
         <div class="filmstrip">
           ${p.images.map(src => `<div class="device"><img src="${src}" loading="lazy" alt="${p.name} screenshot"></div>`).join('')}
